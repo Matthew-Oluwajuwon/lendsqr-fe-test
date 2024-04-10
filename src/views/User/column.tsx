@@ -25,34 +25,70 @@ const useColumn = (setFilters: any, filters: any, items: any[]) => {
         );
       },
       filterIcon: () => <img src={filterIcon} alt="" />,
+      render: (_, record: Apiresponse.Users) => {
+        return <p>{record.personalInformation?.organization}</p>;
+      },
     },
     {
       title: "USERNAME",
       dataIndex: "username",
       key: "2",
       ellipsis: true,
-      filters: [],
+      filterDropdown: ({ clearFilters, confirm }) => {
+        return (
+          <Filter
+            setFilters={setFilters}
+            filters={filters}
+            clearFilters={clearFilters as any}
+            confirm={confirm}
+          />
+        );
+      },
       filterIcon: () => <img src={filterIcon} alt="" />,
+      render: (_, record: Apiresponse.Users) => {
+        return <p>{record.personalInformation?.username}</p>;
+      },
     },
     {
       title: "EMAIL",
       dataIndex: "email",
       key: "3",
       ellipsis: true,
-      filters: [],
+      filterDropdown: ({ clearFilters, confirm }: any) => {
+        return (
+          <Filter
+            setFilters={setFilters}
+            filters={filters}
+            clearFilters={clearFilters}
+            confirm={confirm}
+          />
+        );
+      },
       filterIcon: () => <img src={filterIcon} alt="" />,
+      render: (_, record: Apiresponse.Users) => {
+        return <p>{record.personalInformation?.email}</p>;
+      },
     },
     {
       title: "PHONE NUMBER",
       dataIndex: "phoneNumber",
       key: "4",
       ellipsis: true,
-      filters: [],
+      filterDropdown: ({ clearFilters, confirm }: any) => {
+        return (
+          <Filter
+            setFilters={setFilters}
+            filters={filters}
+            clearFilters={clearFilters}
+            confirm={confirm}
+          />
+        );
+      },
       filterIcon: () => <img src={filterIcon} alt="" />,
       render: (_, record: Apiresponse.Users) => {
         return (
           <p>
-            {record.phoneNumber
+            {record.personalInformation?.phoneNumber
               ?.replaceAll("+234", "0")
               .replaceAll("(", "")
               .replaceAll(")", "")
@@ -68,14 +104,23 @@ const useColumn = (setFilters: any, filters: any, items: any[]) => {
       key: "5",
       ellipsis: true,
       width: "12rem",
-      filters: [],
+      filterDropdown: ({ clearFilters, confirm }: any) => {
+        return (
+          <Filter
+            setFilters={setFilters}
+            filters={filters}
+            clearFilters={clearFilters}
+            confirm={confirm}
+          />
+        );
+      },
       filterIcon: () => <img src={filterIcon} alt="" />,
       render: (_, record: Apiresponse.Users) => {
         return (
           <p>{`${new Date(
-            record.dateJoined.split(" ")[0]
+            record.personalInformation?.dateJoined?.split(" ")[0]
           ).toDateString()} ${new Date(
-            record.dateJoined.split(" ")[0]
+            record.personalInformation?.dateJoined?.split(" ")[0]
           ).toLocaleTimeString()}`}</p>
         );
       },
@@ -85,26 +130,41 @@ const useColumn = (setFilters: any, filters: any, items: any[]) => {
       dataIndex: "status",
       key: "6",
       ellipsis: true,
-      filters: [],
+      filterDropdown: ({ clearFilters, confirm }: any) => {
+        return (
+          <Filter
+            setFilters={setFilters}
+            filters={filters}
+            clearFilters={clearFilters}
+            confirm={confirm}
+          />
+        );
+      },
       filterIcon: () => <img src={filterIcon} alt="" />,
       render: (_, record: Apiresponse.Users) => {
         return (
           <p
             style={{
               color:
-                record.status?.toLowerCase() === userStatus.ACTIVE
+                record?.personalInformation?.status?.toLowerCase() ===
+                userStatus.ACTIVE
                   ? "#39CD62"
-                  : record.status?.toLowerCase() === userStatus.BLACKLISTED
+                  : record.personalInformation?.status?.toLowerCase() ===
+                    userStatus.BLACKLISTED
                   ? "#E4033B"
-                  : record.status?.toLowerCase() === userStatus.INACTIVE
+                  : record.personalInformation?.status?.toLowerCase() ===
+                    userStatus.INACTIVE
                   ? "#545F7D"
                   : "#E9B200",
               backgroundColor:
-                record.status?.toLowerCase() === userStatus.ACTIVE
+                record.personalInformation?.status?.toLowerCase() ===
+                userStatus.ACTIVE
                   ? "#39CD6210"
-                  : record.status?.toLowerCase() === userStatus.BLACKLISTED
+                  : record.personalInformation?.status?.toLowerCase() ===
+                    userStatus.BLACKLISTED
                   ? "#E4033B10"
-                  : record.status?.toLowerCase() === userStatus.INACTIVE
+                  : record.personalInformation?.status?.toLowerCase() ===
+                    userStatus.INACTIVE
                   ? "#545F7D10"
                   : "#E9B20010",
               textAlign: "center",
@@ -113,7 +173,7 @@ const useColumn = (setFilters: any, filters: any, items: any[]) => {
               width: "fit-content",
             }}
           >
-            {record.status}
+            {record.personalInformation?.status}
           </p>
         );
       },

@@ -20,7 +20,7 @@ const UserList: React.FC = () => {
     dateJoined: null,
   });
 
-  const { items } = TableMoreItems()
+  const { items } = TableMoreItems();
 
   const { column } = useColumn(setFilters, filters, items);
 
@@ -28,18 +28,26 @@ const UserList: React.FC = () => {
   useRetriveDataFromStorage();
 
   const filteredData = Array.isArray(state.users)
-    ? state.users.filter((user) => {
+    ? state.users?.filter((user) => {
         // Check if each field matches the corresponding filter value
         return (
           (!filters.organization ||
-            user.organization.includes(filters.organization)) &&
-          (!filters.username || user.username.includes(filters.username)) &&
-          (!filters.email || user.email.includes(filters.email)) &&
+            user.personalInformation?.organization.includes(
+              filters.organization
+            )) &&
+          (!filters.username ||
+            user.personalInformation?.username.includes(filters.username)) &&
+          (!filters.email ||
+            user.personalInformation?.email.includes(filters.email)) &&
           (!filters.phoneNumber ||
-            user.phoneNumber.includes(filters.phoneNumber)) &&
-          (!filters.status || user.status === filters.status) &&
+            user.personalInformation?.phoneNumber.includes(
+              filters.phoneNumber
+            )) &&
+          (!filters.status ||
+            user.personalInformation?.status?.toLowerCase() ===
+              filters.status?.toLowerCase()) &&
           (!filters.dateJoined ||
-            moment(user.dateJoined, "YYYY-MM-DD").isSame(
+            moment(user.personalInformation?.dateJoined, "YYYY-MM-DD").isSame(
               moment(filters.dateJoined),
               "day"
             ))
@@ -52,6 +60,7 @@ const UserList: React.FC = () => {
     ...user,
     key: index + 1,
   }));
+
 
   return (
     <div className="user-table">

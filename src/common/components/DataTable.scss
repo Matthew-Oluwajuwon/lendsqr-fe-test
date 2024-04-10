@@ -3,9 +3,13 @@
 .pagination {
   position: absolute;
   left: 0;
-  display: flex;
+  display: none;
   align-items: center;
   gap: 10px;
+
+  @include mobile {
+    display: flex;
+  }
 }
 
 .ant-table-wrapper
