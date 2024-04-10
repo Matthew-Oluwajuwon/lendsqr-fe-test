@@ -39,41 +39,44 @@ const GeneralDetails: React.FC<any> = ({
                       );
                     })
                     .map((y, i) => (
-                        <Col
+                      <Col
                         key={i}
-                          xs={24}
-                          sm={12}
-                          md={x[0] === "guarantor" ? 24 : 8}
-                          lg={x[0] === "guarantor" ? 24 : 8}
-                          xl={x[0] === "guarantor" ? 20 : 6}
-                          xxl={x[0] === "guarantor" ? 18 : 6}
-                        >
-                          <p className="tab__group-item-name">
-                            {convertToPascalCase(
-                              y[0] === "0" || y[0] === "1"
-                                ? ""
-                                : y[0] === "username"
-                                ? "fullName"
-                                : (y[0] as string)
-                            ).toUpperCase()}
-                          </p>
-                          <div className="tab__group-item-value tab__group-extra">
-                            {typeof y[1] === "object"
-                              ? (Object.entries(y[1] as any).map((p, i) => (
-                                  <div key={i}>
-                                    <p className="tab__group-item-name">
-                                      {convertToPascalCase(
-                                        p[0] as string
-                                      ).toUpperCase()}
-                                    </p>
-                                    <p className="tab__group-item-value">
-                                      {p[1] as any}
-                                    </p>
-                                  </div>
-                                )) as any)
-                              : y[1]}
-                          </div>
-                        </Col>
+                        xs={24}
+                        sm={12}
+                        md={x[0] === "guarantor" ? 24 : 8}
+                        lg={x[0] === "guarantor" ? 24 : 8}
+                        xl={x[0] === "guarantor" ? 20 : 6}
+                        xxl={x[0] === "guarantor" ? 18 : 6}
+                      >
+                        <p className="tab__group-item-name">
+                          {convertToPascalCase(
+                            y[0] === "0" || y[0] === "1"
+                              ? ""
+                              : y[0] === "username"
+                              ? "fullName"
+                              : (y[0] as string)
+                          ).toUpperCase()}
+                        </p>
+                        <div className="tab__group-item-value tab__group-extra">
+                          {typeof y[1] === "object"
+                            ? (Object.entries(y[1] as any).map((p, i) => (
+                                <div key={i}>
+                                  <p className="tab__group-item-name">
+                                    {convertToPascalCase(
+                                      p[0] as string
+                                    ).toUpperCase()}
+                                  </p>
+                                  <p className="tab__group-item-value">
+                                    {p[1] as any}
+                                  </p>
+                                </div>
+                              )) as any)
+                            : y[0] === "monthlyIncome" ||
+                              y[0] === "loanRepayment"
+                            ? Intl.NumberFormat().format(y[1] as any)
+                            : y[1]}
+                        </div>
+                      </Col>
                     ))
                 : x[1]}
             </Row>
