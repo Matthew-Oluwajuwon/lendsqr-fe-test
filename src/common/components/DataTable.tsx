@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import "./DataTable.scss"
+import "./DataTable.scss";
 import { Table } from "antd";
 import React, { useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
@@ -7,6 +7,7 @@ import { setAllAppKeys } from "../../store";
 import { AppProps } from "../../model/application/props";
 import nextArrow from "../../assets/icons/next-btn.png";
 import prevArrow from "../../assets/icons/prev-btn.png";
+import dropdown from "../../assets/icons/dropdown-outline.png";
 
 export const DataTable: React.FC<AppProps.TableData> = ({
   column,
@@ -62,14 +63,18 @@ export const DataTable: React.FC<AppProps.TableData> = ({
         total: total,
         pageSize: 10,
         showTotal: (total: number) => {
-          return(
-          <div className="pagination">
-            <span className="">Showing </span>{" "}
-            <span className="">
-              {state.page + 1} out of {total}
-            </span>
-          </div>
-        )},
+          return (
+            <div className="pagination">
+              <span className="">Showing </span>{" "}
+              <div className="page-count">
+                <div className="page-count__content">
+                  {(state.page + 1) * 10} <img src={dropdown} />
+                </div>{" "}
+                out of {total}
+              </div>
+            </div>
+          );
+        },
       }}
       scroll={{ x: scrollX ? scrollX : 800 }}
     />
