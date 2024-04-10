@@ -1,4 +1,5 @@
 import { FormProps } from "antd";
+import users from "./users.json"
 
 export type FORM_ACTION =
   | "CREATE"
@@ -18,5 +19,16 @@ export const formConfig: FormProps = {
   layout: "vertical",
   labelCol: { span: 24 },
   wrapperCol: { span: 24 },
-  requiredMark: "optional",
 };
+
+
+export const storeDataToLocalStorage = () => {
+    localStorage.setItem("users", JSON.stringify(users))
+}
+
+export const userStatus = {
+    INACTIVE: "inactive",
+    PENDING: "pending",
+    ACTIVE: "active",
+    BLACKLISTED: "blacklisted"
+}

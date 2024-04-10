@@ -47,7 +47,7 @@ export namespace AppProps {
     emptyHeadingText?: string;
     emptyParagraphText?: string;
     rowSelection?: any;
-    onRowSelect: (record: any, rowIndex: number | undefined) => void = () => {};
+    onRowSelect?: (record: any, rowIndex: number | undefined) => void = () => {};
     pageTitle?: string | React.ReactNode;
     tableHeadAction?: React.ReactNode;
     extraItem?: React.ReactNode

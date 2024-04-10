@@ -9,7 +9,6 @@ export namespace State {
     request: any;
     response: any;
     current: number;
-    steps: Array<Steps>;
     showSteps: boolean;
     isPasswordLength: boolean;
     isUpperCase: boolean;
@@ -44,44 +43,6 @@ export namespace State {
     showErrorModal?: boolean;
     progressCurrent?: number;
     showModal?: boolean;
-    currentSelectedTabKey?: string;
-    showWithdrawalModal?: boolean;
-    fileList?: KycFileList;
-    businessCategories?: Array<Apiresponse.BusinessCategories>;
-    businessStatuses?: Array<Apiresponse.BusinessStatuses>;
-    states?: Array<Apiresponse.States>;
-    imageFileSize?: string;
-    imageFileType?: string;
-    uploadModal?: boolean;
-    deliveryMethods?: Array<Apiresponse.DeliveryMethods>;
-    cities?: Array<Apiresponse.CityDto>;
-    stateId?: number;
-    cityId?: number;
-    deliveryAndPickup?: Array<Apiresponse.DeliveryAndPickUp>;
-    userInfo?: Apiresponse.UserInfo;
-    showTerminalDetailsModal?: boolean;
-    selectedTerminalDetails?: Apiresponse.TerminalPurchase;
-    kycUploadInfo?: Apiresponse.KycDocument;
-    showDeactivateTerminalModal?: boolean;
-  }
-
-  export interface Steps {
-    content: React.ReactNode;
-  }
-
-  export class FileList {
-    uid?: string;
-    name?: string;
-    status?: "done";
-    url?: string;
-    thumbUrl?: string;
-  }
-
-  export class KycFileList {
-    nationalIdCard?: FileList[];
-    certificateOfBusinessRegistration?: FileList[];
-    articlesOfIncorporation?: FileList[];
-    validIdentificationCardForEachSignatory?: FileList[];
-    residentPermitSignatories?: FileList[];
+    users?: Array<Apiresponse.Users>
   }
 }

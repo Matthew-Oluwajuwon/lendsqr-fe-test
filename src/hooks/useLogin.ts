@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useAppSelector } from "../store/hooks";
 import { useNavigate } from "react-router-dom";
-import { routePath } from "../utils/helper";
+import { routePath, storeDataToLocalStorage } from "../utils/helper";
 import useNotification from "./useNotification";
 
 const useLogin = () => {
@@ -25,6 +25,7 @@ const useLogin = () => {
       return;
     } else {
       onNotify("success", "Login is successful", "Authenticated");
+      storeDataToLocalStorage()
       setTimeout(() => {
         return navigate(routePath.User, {
           replace: true,

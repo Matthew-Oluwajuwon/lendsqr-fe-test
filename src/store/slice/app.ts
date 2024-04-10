@@ -7,7 +7,6 @@ const initialState: State.App = {
   request: undefined,
   response: undefined,
   current: 0,
-  steps: [],
   showSteps: false,
   isPasswordLength: false,
   isUpperCase: false,
@@ -15,7 +14,7 @@ const initialState: State.App = {
   hasNumber: false,
   isSpecialChar: false,
   menuCollapsed: false,
-  selectedKey: "",
+  selectedKey: "1",
   pageTitle: "",
   breadcrumb: "",
   record: undefined,
@@ -27,8 +26,6 @@ const initialState: State.App = {
   deleteUrl: "",
   page: 0,
   progressCurrent: 20,
-  currentSelectedTabKey: "1",
-  showTerminalDetailsModal: false,
   
 };
 

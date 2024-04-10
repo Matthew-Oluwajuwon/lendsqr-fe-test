@@ -33,13 +33,13 @@
   &__header {
     &__title {
       font-family: "avenir-next-bold";
-      color: #213f7d;
+      color: $secondary-color;
       text-align: center;
       font-size: 1.5rem;
     }
     &__subtitle {
       font-family: "avenir-next-thin";
-      color: #545f7d;
+      color: $tertiary-color;
       font-size: 1rem;
     }
   }
@@ -58,7 +58,7 @@
       border: none;
       outline: none;
       background-color: transparent;
-      color: #39cdcc;
+      color: $primary-color;
       letter-spacing: 2px;
       width: fit-content;
       font-weight: 600;

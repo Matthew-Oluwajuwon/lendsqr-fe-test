@@ -1,0 +1,30 @@
+@import "../../index";
+
+.pagination {
+  position: absolute;
+  left: 0;
+}
+
+.ant-table-wrapper
+  .ant-table-pagination {
+  align-items: center!important;
+  position: absolute;
+  width: 100%;
+}
+
+.ant-pagination .ant-pagination-item-active {
+    border: none!important;
+    background-color: transparent!important;
+}
+
+.ant-pagination .ant-pagination-item-active a {
+    
+    color: $tertiary-color!important;
+}
+
+.ant-pagination .ant-pagination-item {
+    margin-top: -10px!important;
+}
+.ant-pagination .ant-pagination-item a {
+    font-family: 'work-sans-medium';
+}
