@@ -1,6 +1,12 @@
-// styles.scss
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-$primary-color: #007bff;
+body {
+  min-height: 100svh;
+}
 
 @font-face {
   font-family: "avenir-next-bold";
@@ -13,4 +19,37 @@ $primary-color: #007bff;
 @font-face {
   font-family: "avenir-next-medium";
   src: url("./assets/fonts/AvenirNextCyr-Medium.ttf");
+}
+@font-face {
+  font-family: "avenir-next-thin";
+  src: url("./assets/fonts/AvenirNextCyr-Thin.ttf");
+}
+
+$mobile-breakpoint: 768px;
+$tablet-breakpoint: 992px;
+$small-laptop-breakpoint: 1280px;
+$desktop-breakpoint: 1600px;
+
+@mixin desktop {
+  @media only screen and (min-width: #{$desktop-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin smallLaptop {
+  @media only screen and (min-width: #{$small-laptop-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: #{$tablet-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media only screen and (min-width: #{$mobile-breakpoint}) {
+    @content;
+  }
 }

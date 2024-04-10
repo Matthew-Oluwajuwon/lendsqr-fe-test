@@ -1,11 +1,13 @@
-import logo from "./assets/images/logo.svg"
+import { ConfigProvider } from "antd"
+import { RouterProvider } from "react-router-dom"
+import { router } from "./route/router.config"
+import { antdThemeConfig } from "./antdTheme.config"
+
 const App = () => {
   return (
-    <header className="header">
-      <h1 className="header__title" data-testid='heading'>Hello, World!</h1>
-      <p className="header__subtitle" data-testid='paragraph'>Welcome to my React.js project</p>
-      <img src={logo} alt="" />
-    </header>
+    <ConfigProvider theme={antdThemeConfig}>
+      <RouterProvider router={router} />
+    </ConfigProvider>
   )
 }
 
