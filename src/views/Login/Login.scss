@@ -18,18 +18,29 @@
       margin: 4rem 0;
       width: 100%;
     }
+
+    .antd-form &__header {
+        &__title {
+            font-size: 2.5rem;
+            text-align: left;
+        }
+        &__subtitle {
+            font-size: 1.25rem;
+        }
+    }
   }
 
   &__header {
     &__title {
       font-family: "avenir-next-bold";
       color: #213f7d;
-      font-size: 2.5rem;
+      text-align: center;
+      font-size: 1.5rem;
     }
     &__subtitle {
       font-family: "avenir-next-thin";
       color: #545f7d;
-      font-size: 1.25rem;
+      font-size: 1rem;
     }
   }
   &__row {

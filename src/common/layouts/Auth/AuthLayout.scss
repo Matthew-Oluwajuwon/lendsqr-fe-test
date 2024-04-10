@@ -2,6 +2,7 @@
 
 .auth-container {
   height: 100svh;
+
   @include tablet {
     height: 100svh;
     display: grid;
@@ -18,7 +19,12 @@
       height: 100%;
       display: flex;
       align-items: center;
+
+      &__mobile-logo {
+        display: none;
     }
+    }
+    
   }
 
   &__left {
@@ -32,6 +38,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
+
+    &__mobile-logo {
+        display: block;
+        margin: 0 auto;
+    }
   }
 
   &__image {
