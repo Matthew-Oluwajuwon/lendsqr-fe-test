@@ -2,12 +2,15 @@
 import { Dropdown } from "antd";
 import { ColumnProps } from "antd/es/table";
 import { Apiresponse } from "../../model/client/response";
-import { userStatus } from "../../utils/helper";
+import { routePath, userStatus } from "../../utils/helper";
 import Filter from "./Filter";
 import more from "../../assets/icons/more.png";
 import filterIcon from "../../assets/icons/filter-btn.png";
+import { useNavigate } from "react-router-dom";
 
 const useColumn = (setFilters: any, filters: any, items: any[]) => {
+  const navigate = useNavigate();
+
   const column: ColumnProps<Apiresponse.Users>[] = [
     {
       title: "ORGANIZATION",
@@ -183,14 +186,21 @@ const useColumn = (setFilters: any, filters: any, items: any[]) => {
       ellipsis: true,
       fixed: "right",
       width: "50px",
-      render: () => {
+      render: (_, record: Apiresponse.Users) => {
         return (
           <Dropdown
             trigger={["click", "hover"]}
             rootClassName="dropdown"
             overlayClassName="dropdown"
             placement="bottomLeft"
-            menu={{ items }}
+            menu={{
+              items,
+              onClick: (e) => {
+                if (e.key === "1") {
+                  navigate(routePath.UserDetails + record._id);
+                }
+              },
+            }}
           >
             <button type="button">
               <img src={more} />

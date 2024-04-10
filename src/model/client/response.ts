@@ -7,6 +7,7 @@ export namespace Apiresponse {
     educationAndEmployment: EducationAndEmployment = new EducationAndEmployment();
     socials: Socials = new Socials();
     guarantor: Guarantor[] = [];
+    bankInformation: BankInfomation = new BankInfomation()
   }
   export class Guarantor {
     fullName: string = '';
@@ -40,5 +41,11 @@ export namespace Apiresponse {
     gender: string = '';
     children: number = 0;
     typeOfResidence: string = '';
+  }
+
+  export class BankInfomation {
+    accountNo: number = 0;
+    bankName: string = '';
+    amount: number = 0;
   }
 }

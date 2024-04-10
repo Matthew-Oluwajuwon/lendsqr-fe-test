@@ -33,6 +33,6 @@ export const antdThemeConfig: ThemeConfig = {
     },
     Dropdown: {
         borderRadius: 0
-    }
+    },
   },
 };

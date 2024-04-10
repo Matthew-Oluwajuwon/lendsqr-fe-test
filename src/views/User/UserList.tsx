@@ -29,7 +29,6 @@ const UserList: React.FC = () => {
 
   const filteredData = Array.isArray(state.users)
     ? state.users?.filter((user) => {
-        // Check if each field matches the corresponding filter value
         return (
           (!filters.organization ||
             user.personalInformation?.organization.includes(

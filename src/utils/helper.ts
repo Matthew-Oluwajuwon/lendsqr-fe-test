@@ -11,7 +11,7 @@ export type FORM_ACTION =
 export const routePath = {
   Login: "/",
   User: "/user",
-  UserDetails: "/user-details/",
+  UserDetails: "/user/user-details/",
 };
 
 export const formConfig: FormProps = {

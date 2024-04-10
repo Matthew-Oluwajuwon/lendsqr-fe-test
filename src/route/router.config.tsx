@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { routePath } from "../utils/helper";
-import { Login, User } from "../views";
+import { Login, User, UserDetails } from "../views";
 import { AppLayout } from "../common/layouts/App/AppLayout";
 import { AuthLayout } from "../common/layouts/Auth/AuthLayout";
 
@@ -16,11 +16,16 @@ export const router = createBrowserRouter([
   },
   {
     element: <AppLayout />,
+    path: routePath.User,
     children: [
       {
-        path: routePath.User,
+        index: true,
         Component: User,
       },
+      {
+        path: routePath.UserDetails + ":id",
+        Component: UserDetails
+      }
     ],
   },
 ]);

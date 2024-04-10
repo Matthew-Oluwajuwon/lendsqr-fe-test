@@ -4,21 +4,24 @@ import viewUser from "../../assets/icons/eye-outline.png";
 import { MenuProps } from "antd";
 
 const TableMoreItems = () => {
+
   const items: MenuProps["items"] = [
     {
       label: (
-        <div
+        <button
+          type="button"
           style={{
             display: "flex",
             alignItems: "center",
             gap: 10,
             color: "#545F7D",
             margin: ".3rem 0",
+            backgroundColor: "transparent",
           }}
         >
           <img src={viewUser} alt="" />
           <p>View Details</p>
-        </div>
+        </button>
       ),
       key: "1",
     },
