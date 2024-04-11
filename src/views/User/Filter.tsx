@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Form, Input, DatePicker, Select, Row, Col, Button } from "antd";
+import { Form, Input, DatePicker, Select, Row, Col, Button, DatePickerProps } from "antd";
 import { Apiresponse } from "../../model/client/response";
 import { formConfig, userStatus } from "../../utils/helper";
 import dateImg from "../../assets/icons/calendar.png";
-import "./User.scss"
-
+import "./User.scss";
 
 interface FilterProps {
   setFilters: (value: any) => void;
@@ -19,8 +18,16 @@ const Filter: React.FC<FilterProps> = ({
   clearFilters,
   confirm,
 }) => {
-  const handleFilterChange = (key: keyof Apiresponse.PersonalInformation, value: any) => {
+  const handleFilterChange = (
+    key: keyof Apiresponse.PersonalInformation,
+    value: any
+  ) => {
+    
     setFilters({ ...filters, [key]: value });
+  };
+
+  const onChange: DatePickerProps['onChange'] = (date) => {
+    setFilters({...filters, dateJoined: date})
   };
 
   const handleReset = () => {
@@ -143,9 +150,8 @@ const Filter: React.FC<FilterProps> = ({
         <DatePicker
           suffixIcon={<img src={dateImg} />}
           placeholder="Date"
-          onChange={(_, dateString) =>
-            handleFilterChange("dateJoined", dateString)
-          }
+          onChange={onChange}
+          format="YYYY-MM-DD"
           style={{ width: "100%", padding: "1rem" }}
         />
       </Form.Item>

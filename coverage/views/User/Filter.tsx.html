@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">6.72% </span>
+                <span class="strong">6.91% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/238</span>
+                <span class='fraction'>17/246</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">6.72% </span>
+                <span class="strong">6.91% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/238</span>
+                <span class='fraction'>17/246</span>
             </div>
         
             
@@ -301,7 +301,15 @@
 <a name='L236'></a><a href='#L236'>236</a>
 <a name='L237'></a><a href='#L237'>237</a>
 <a name='L238'></a><a href='#L238'>238</a>
-<a name='L239'></a><a href='#L239'>239</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L239'></a><a href='#L239'>239</a>
+<a name='L240'></a><a href='#L240'>240</a>
+<a name='L241'></a><a href='#L241'>241</a>
+<a name='L242'></a><a href='#L242'>242</a>
+<a name='L243'></a><a href='#L243'>243</a>
+<a name='L244'></a><a href='#L244'>244</a>
+<a name='L245'></a><a href='#L245'>245</a>
+<a name='L246'></a><a href='#L246'>246</a>
+<a name='L247'></a><a href='#L247'>247</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -315,6 +323,14 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -540,10 +556,11 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Form, Input, DatePicker, Select, Row, Col, Button } from "antd";
+import { Form, Input, DatePicker, Select, Row, Col, Button, DatePickerProps } from "antd";
 import { Apiresponse } from "../../model/client/response";
 import { formConfig, userStatus } from "../../utils/helper";
 import dateImg from "../../assets/icons/calendar.png";
+import "./User.scss";
 &nbsp;
 interface FilterProps {
   setFilters: (value: any) =&gt; void;
@@ -558,8 +575,16 @@ const Filter: React.FC&lt;FilterProps&gt; = <span class="fstat-no" title="functi
 <span class="cstat-no" title="statement not covered" >  clearFilters,</span>
 <span class="cstat-no" title="statement not covered" >  confirm,</span>
 <span class="cstat-no" title="statement not covered" >}) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const handleFilterChange = (key: keyof Apiresponse.PersonalInformation, value: any) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const handleFilterChange = (</span>
+<span class="cstat-no" title="statement not covered" >    key: keyof Apiresponse.PersonalInformation,</span>
+<span class="cstat-no" title="statement not covered" >    value: any</span>
+<span class="cstat-no" title="statement not covered" >  ) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    </span>
 <span class="cstat-no" title="statement not covered" >    setFilters({ ...filters, [key]: value });</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const onChange: DatePickerProps['onChange'] = (date) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    setFilters({...filters, dateJoined: date})</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const handleReset = () =&gt; {</span>
@@ -682,9 +707,8 @@ const Filter: React.FC&lt;FilterProps&gt; = <span class="fstat-no" title="functi
 <span class="cstat-no" title="statement not covered" >        &lt;DatePicker</span>
 <span class="cstat-no" title="statement not covered" >          suffixIcon={&lt;img src={dateImg} /&gt;}</span>
 <span class="cstat-no" title="statement not covered" >          placeholder="Date"</span>
-<span class="cstat-no" title="statement not covered" >          onChange={(_, dateString) =&gt;</span>
-<span class="cstat-no" title="statement not covered" >            handleFilterChange("dateJoined", dateString)</span>
-<span class="cstat-no" title="statement not covered" >          }</span>
+<span class="cstat-no" title="statement not covered" >          onChange={onChange}</span>
+<span class="cstat-no" title="statement not covered" >          format="YYYY-MM-DD"</span>
 <span class="cstat-no" title="statement not covered" >          style={{ width: "100%", padding: "1rem" }}</span>
 <span class="cstat-no" title="statement not covered" >        /&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/Form.Item&gt;</span>
@@ -784,7 +808,7 @@ export default Filter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-04-11T10:31:33.741Z
+                at 2024-04-11T14:15:26.706Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

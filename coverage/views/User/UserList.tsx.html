@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80.28% </span>
+                <span class="strong">81.69% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>57/71</span>
+                <span class='fraction'>58/71</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80.28% </span>
+                <span class="strong">81.69% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>57/71</span>
+                <span class='fraction'>58/71</span>
             </div>
         
             
@@ -144,6 +144,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -167,22 +168,22 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -202,7 +203,6 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* eslint-disable @typescript-eslint/no-explicit-any */
@@ -213,6 +213,7 @@ import { useState } from "react";
 import moment from "moment";
 import useColumn from "./column";
 import TableMoreItems from "./TableMoreItems";
+import "./User.scss";
 &nbsp;
 const UserList: React.FC = () =&gt; {
   const state = useAppSelector((state) =&gt; {
@@ -224,7 +225,7 @@ const UserList: React.FC = () =&gt; {
     email: "",
     phoneNumber: "",
     status: "",
-    dateJoined: null,
+    dateJoined: "",
   });
 &nbsp;
   const { items } = TableMoreItems();
@@ -236,7 +237,8 @@ const UserList: React.FC = () =&gt; {
 &nbsp;
   const filteredData = Array.isArray(state.users)
     ? state.users?.filter((user) =&gt; {
-        return (
+      const filteredDate = new Date(filters.dateJoined)
+             return (
           (!filters.<span class="branch-0 cbranch-no" title="branch not covered" >organization ||</span>
 <span class="cstat-no" title="statement not covered" >            user.personalInformation?.organization.includes(</span>
 <span class="cstat-no" title="statement not covered" >              filters.organization</span>
@@ -252,11 +254,10 @@ const UserList: React.FC = () =&gt; {
           (!filters.<span class="branch-0 cbranch-no" title="branch not covered" >status ||</span>
 <span class="cstat-no" title="statement not covered" >            user.personalInformation?.status?.toLowerCase() ===</span>
 <span class="cstat-no" title="statement not covered" >              filters.status?.toLowerCase()) &amp;&amp;</span>
-          (!filters.<span class="branch-0 cbranch-no" title="branch not covered" >dateJoined ||</span>
-<span class="cstat-no" title="statement not covered" >            moment(user.personalInformation?.dateJoined, "YYYY-MM-DD").isSame(</span>
-<span class="cstat-no" title="statement not covered" >              moment(filters.dateJoined),</span>
-<span class="cstat-no" title="statement not covered" >              "day"</span>
-<span class="cstat-no" title="statement not covered" >            ))</span>
+          (!filters.<span class="branch-0 cbranch-no" title="branch not covered" >dateJoined || moment(user.personalInformation?.dateJoined, 'YYYY-MM-DDTHH:mm:ss Z').isSame(</span>
+<span class="cstat-no" title="statement not covered" >            moment(filteredDate),</span>
+<span class="cstat-no" title="statement not covered" >            'day'</span>
+<span class="cstat-no" title="statement not covered" >          ))</span>
         );
       })
     : [];
@@ -266,7 +267,6 @@ const UserList: React.FC = () =&gt; {
     ...user,
     key: index + 1,
   }));
-&nbsp;
 &nbsp;
   return (
     &lt;div className="user-table"&gt;
@@ -283,7 +283,7 @@ export default UserList;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-04-11T10:31:33.741Z
+                at 2024-04-11T14:15:26.706Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

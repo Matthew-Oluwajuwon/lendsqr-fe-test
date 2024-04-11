@@ -6,8 +6,7 @@ import { useState } from "react";
 import moment from "moment";
 import useColumn from "./column";
 import TableMoreItems from "./TableMoreItems";
-import "./User.scss"
-
+import "./User.scss";
 
 const UserList: React.FC = () => {
   const state = useAppSelector((state) => {
@@ -19,7 +18,7 @@ const UserList: React.FC = () => {
     email: "",
     phoneNumber: "",
     status: "",
-    dateJoined: null,
+    dateJoined: "",
   });
 
   const { items } = TableMoreItems();
@@ -31,7 +30,8 @@ const UserList: React.FC = () => {
 
   const filteredData = Array.isArray(state.users)
     ? state.users?.filter((user) => {
-        return (
+      const filteredDate = new Date(filters.dateJoined)
+             return (
           (!filters.organization ||
             user.personalInformation?.organization.includes(
               filters.organization
@@ -47,11 +47,10 @@ const UserList: React.FC = () => {
           (!filters.status ||
             user.personalInformation?.status?.toLowerCase() ===
               filters.status?.toLowerCase()) &&
-          (!filters.dateJoined ||
-            moment(user.personalInformation?.dateJoined, "YYYY-MM-DD").isSame(
-              moment(filters.dateJoined),
-              "day"
-            ))
+          (!filters.dateJoined || moment(user.personalInformation?.dateJoined, 'YYYY-MM-DDTHH:mm:ss Z').isSame(
+            moment(filteredDate),
+            'day'
+          ))
         );
       })
     : [];
@@ -61,7 +60,6 @@ const UserList: React.FC = () => {
     ...user,
     key: index + 1,
   }));
-
 
   return (
     <div className="user-table">

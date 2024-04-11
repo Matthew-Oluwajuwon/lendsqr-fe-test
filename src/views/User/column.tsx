@@ -91,12 +91,7 @@ const useColumn = (setFilters: any, filters: any, items: any[]) => {
       render: (_, record: Apiresponse.Users) => {
         return (
           <p>
-            {record.personalInformation?.phoneNumber
-              ?.replaceAll("+234", "0")
-              .replaceAll("(", "")
-              .replaceAll(")", "")
-              .replaceAll(" ", "")
-              .replaceAll("-", "")}
+            {record.personalInformation?.phoneNumber}
           </p>
         );
       },
