@@ -185,7 +185,9 @@
 
 .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list,
 .ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-list {
-  width: 100% !important;
+  width: 95% !important;
+  display: flex!important;
+  justify-content: space-between!important;
 }
 
 .ant-tabs-top > .ant-tabs-nav,
