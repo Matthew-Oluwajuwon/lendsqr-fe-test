@@ -7,8 +7,9 @@ import { useNavigate } from "react-router-dom";
 import { routePath } from "../../utils/helper";
 import { Apiresponse } from "../../model/client/response";
 import GeneralDetails from "./GeneralDetails";
+import "./User.scss"
 
-export const UserDetails: React.FC = () => {
+const UserDetails: React.FC = () => {
   const state = useAppSelector((state) => {
     return state.app;
   });
@@ -107,3 +108,5 @@ export const UserDetails: React.FC = () => {
     </div>
   );
 };
+
+export default UserDetails

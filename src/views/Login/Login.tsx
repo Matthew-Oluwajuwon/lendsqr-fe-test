@@ -6,7 +6,7 @@ import { useAppSelector } from "../../store/hooks";
 import useSubmittable from "../../hooks/useSubmittable";
 import useLogin from "../../hooks/useLogin";
 
-export const Login: React.FC = () => {
+ const Login: React.FC = () => {
   document.title = "Lendsqr | Empowering the smartest lenders";
   const state = useAppSelector((state) => {
     return state.app;
@@ -116,3 +116,5 @@ export const Login: React.FC = () => {
     </Form>
   );
 };
+
+export default Login

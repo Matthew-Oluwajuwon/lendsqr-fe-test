@@ -3,6 +3,8 @@ import { Form, Input, DatePicker, Select, Row, Col, Button } from "antd";
 import { Apiresponse } from "../../model/client/response";
 import { formConfig, userStatus } from "../../utils/helper";
 import dateImg from "../../assets/icons/calendar.png";
+import "./User.scss"
+
 
 interface FilterProps {
   setFilters: (value: any) => void;

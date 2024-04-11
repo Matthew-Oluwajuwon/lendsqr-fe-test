@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Col, Divider, Row } from "antd";
 import { Apiresponse } from "../../model/client/response";
+import "./User.scss"
+
 
 const GeneralDetails: React.FC<any> = ({
   data,

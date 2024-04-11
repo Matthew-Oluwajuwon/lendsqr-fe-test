@@ -2,6 +2,8 @@ import users from "../../assets/icons/users.png";
 import usersWithLoan from "../../assets/icons/users-with-loan.png";
 import usersWithSavings from "../../assets/icons/users-with-savings.png";
 import activeUsers from "../../assets/icons/active-users.png";
+import "./User.scss"
+
 
 const UserStatistics: React.FC = () => {
   const statistics = [

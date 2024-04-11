@@ -2,6 +2,8 @@ import blacklistUser from "../../assets/icons/user-blacklist.png";
 import activateUser from "../../assets/icons/activate-user.png";
 import viewUser from "../../assets/icons/eye-outline.png";
 import { MenuProps } from "antd";
+import "./User.scss"
+
 
 const TableMoreItems = () => {
 

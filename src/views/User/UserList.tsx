@@ -6,6 +6,8 @@ import { useState } from "react";
 import moment from "moment";
 import useColumn from "./column";
 import TableMoreItems from "./TableMoreItems";
+import "./User.scss"
+
 
 const UserList: React.FC = () => {
   const state = useAppSelector((state) => {
