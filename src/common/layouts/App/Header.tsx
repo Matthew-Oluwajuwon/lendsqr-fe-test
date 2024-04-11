@@ -5,8 +5,12 @@ import notificationBell from "../../../assets/icons/notification.png";
 import avatar from "../../../assets/images/avatar.svg"
 import dropdown from "../../../assets/icons/dropdown.png"
 import { Link } from "react-router-dom";
+import useSearch from "../../../hooks/useSearch";
+import { useState } from "react";
 
 const Header: React.FC = () => {
+  const [searchedValue, setSearchedValue] = useState("")
+  const onSearch = useSearch()
   return (
     <header className="header">
       <section className="header__logo">
@@ -23,12 +27,14 @@ const Header: React.FC = () => {
           <Input.Search
             placeholder="Search for anything"
             rootClassName="header__search"
+            onChange={e => setSearchedValue(e.target.value)}
             enterButton={
               <Button
                 type="primary"
                 style={{ width: 56 }}
                 className="header__search-btn"
                 icon={<img src={search} />}
+                onClick={() => onSearch(searchedValue)}
               />
             }
           />

@@ -7,6 +7,7 @@ import moment from "moment";
 import useColumn from "./column";
 import TableMoreItems from "./TableMoreItems";
 import "./User.scss";
+import useFilter from "../../hooks/useFilter";
 
 const ListData: React.FC = () => {
   const state = useAppSelector((state) => {
@@ -55,11 +56,7 @@ const ListData: React.FC = () => {
       })
     : [];
 
-  // Transform the filtered data into the dataSource format
-  const dataSource = filteredData.map((user, index) => ({
-    ...user,
-    key: index + 1,
-  }));
+  const { dataSource } = useFilter(filteredData)
 
   return (
     <div className="user-table">

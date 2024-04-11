@@ -14,6 +14,7 @@ export namespace State {
     record: any;
     page?: any;
     pageSize?: any;
+    searchTerm?: string;
     users?: Array<Apiresponse.Users>
   }
 }
