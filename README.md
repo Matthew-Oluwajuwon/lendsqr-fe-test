@@ -1,6 +1,6 @@
 # Lendsqr Frontend Engineer Test React 🛡️ ⚛️
 
-[![MIT License](https://github.com/Matthew-Oluwajuwon/lendsqr-frontend-engineer-test/blob/main/LICENSE)]
+[![MIT License](https://img.shields.io/github/license/alan2207/bulletproof-react) (https://github.com/Matthew-Oluwajuwon/lendsqr-frontend-engineer-test/blob/main/LICENSE)]
 
 Lendsqr is an organization that helps thousands of lenders to reach millions of customers, they are on a mission to simplify the lending process with an easy, but sophisticated technology that can guarantee an awesome loan experience for both the lender and the borrower.
 
