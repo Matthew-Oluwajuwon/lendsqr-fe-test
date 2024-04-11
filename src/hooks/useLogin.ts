@@ -13,17 +13,7 @@ const useLogin = () => {
   const { onNotify } = useNotification();
 
   const onLogin = useCallback(() => {
-    if (
-      state.request?.email !== "user@test.com" ||
-      state.request?.password !== "Test123@"
-    ) {
-      onNotify(
-        "error",
-        "Email or Password is incorrect",
-        "Invalid credentials"
-      );
-      return;
-    } else {
+    
       onNotify("success", "Login is successful", "Authenticated");
       storeDataToLocalStorage()
       localStorage.setItem("***", btoa(state.request?.password))
@@ -32,8 +22,8 @@ const useLogin = () => {
           replace: true,
         });
       }, 1000);
-    }
-  }, [navigate, onNotify, state.request?.email, state.request?.password]);
+    
+  }, [navigate, onNotify, state.request?.password]);
 
   return { onLogin };
 };
