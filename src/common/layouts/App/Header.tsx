@@ -28,6 +28,7 @@ const Header: React.FC = () => {
             placeholder="Search for anything"
             rootClassName="header__search"
             onChange={e => setSearchedValue(e.target.value)}
+            allowClear
             enterButton={
               <Button
                 type="primary"
