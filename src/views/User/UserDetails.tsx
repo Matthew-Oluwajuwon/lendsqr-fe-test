@@ -9,6 +9,7 @@ import { Apiresponse } from "../../model/client/response";
 import GeneralDetails from "./GeneralDetails";
 import "./User.scss";
 import React from "react";
+import EmptyData from "./EmptyData";
 
 const Details: React.FC = () => {
   const state = useAppSelector((state) => {
@@ -30,22 +31,27 @@ const Details: React.FC = () => {
     {
       label: "Documents",
       key: "2",
+      children: <EmptyData />
     },
     {
       label: "Bank Details",
       key: "3",
+      children: <EmptyData />
     },
     {
       label: "Loans",
       key: "4",
+      children: <EmptyData />
     },
     {
       label: "Savings",
       key: "5",
+      children: <EmptyData />
     },
     {
       label: "App and System",
       key: "6",
+      children: <EmptyData />
     },
   ];
 
