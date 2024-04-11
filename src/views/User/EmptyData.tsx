@@ -1,9 +1,16 @@
 import { Empty } from "antd";
 
-const EmptyData: React.FC = () => {
+interface EmptyDataProp {
+  description: string;
+}
+
+const EmptyData: React.FC<EmptyDataProp> = ({ description }) => {
   return (
     <div className="tab">
-      <Empty />
+      <Empty
+        image={<div style={{ fontSize: 70 }}>🫣</div>}
+        description={description}
+      />
     </div>
   );
 };

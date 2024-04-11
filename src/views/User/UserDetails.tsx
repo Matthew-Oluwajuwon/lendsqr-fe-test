@@ -31,27 +31,27 @@ const Details: React.FC = () => {
     {
       label: "Documents",
       key: "2",
-      children: <EmptyData />
+      children: <EmptyData description="No documents yet." />
     },
     {
       label: "Bank Details",
       key: "3",
-      children: <EmptyData />
+      children: <EmptyData description="No bank details yet." />
     },
     {
       label: "Loans",
       key: "4",
-      children: <EmptyData />
+      children: <EmptyData description="No loans applied yet." />
     },
     {
       label: "Savings",
       key: "5",
-      children: <EmptyData />
+      children: <EmptyData description="Too bad, no savings yet." />
     },
     {
       label: "App and System",
       key: "6",
-      children: <EmptyData />
+      children: <EmptyData description="No configurations yet." />
     },
   ];
 

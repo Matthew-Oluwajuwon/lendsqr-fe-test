@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import "./DataTable.scss";
-import { Table } from "antd";
+import { Empty, Table } from "antd";
 import React, { useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { setAllAppKeys } from "../../store";
@@ -77,8 +77,18 @@ const PageTable: React.FC<AppProps.TableData> = ({
         },
       }}
       scroll={{ x: scrollX ? scrollX : 800 }}
+      locale={{
+        emptyText: (
+          <div style={{ height: "100%" }}>
+            <Empty
+              image={<div style={{ fontSize: 70 }}>🫣</div>}
+              description="No data to view."
+            />
+          </div>
+        ),
+      }}
     />
   );
 };
 
-export const DataTable = React.memo(PageTable)
+export const DataTable = React.memo(PageTable);
