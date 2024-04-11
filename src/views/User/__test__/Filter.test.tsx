@@ -18,4 +18,17 @@ describe("Filter", () => {
         // Add assertions to verify that the component renders correctly
         expect(screen.getByText('Filter')).toBeInTheDocument();
       });
+
+      it('renders a placeholder text', () => {
+        renderWithProviders(<Filter setFilters={function (_value: any): void {
+            throw new Error("Function not implemented.");
+        } } filters={undefined} clearFilters={function (): void {
+            throw new Error("Function not implemented.");
+        } } confirm={function (): void {
+            throw new Error("Function not implemented.");
+        } } />);
+
+        expect(screen.getByPlaceholderText("Date")).toBeTruthy()
+        expect(screen.getByLabelText("Organization")).toBeInTheDocument()
+      })
 })

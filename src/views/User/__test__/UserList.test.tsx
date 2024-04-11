@@ -66,6 +66,7 @@ describe("UserList", () => {
       }
     ];
     localStorage.setItem("users", JSON.stringify(mockUsers));
+    const bvn = mockUsers[0].personalInformation?.bvn?.toString()
  
     renderWithProviders( 
       <BrowserRouter>
@@ -77,6 +78,7 @@ describe("UserList", () => {
 
     // Assert that specific elements within the rendered component match the snapshot
     expect(screen.getByText("Earnestine Bass")).toBeInTheDocument();
+    expect(bvn).toHaveLength(11)
 
   });
 
@@ -90,6 +92,6 @@ describe("UserList", () => {
     ); // Render the component
 
     // Assert that specific elements within the rendered component match the snapshot
-    expect(screen.getByText("No data")).toBeInTheDocument();
+    expect(screen.getByText("No data to view.")).toBeInTheDocument();
   });
 });
