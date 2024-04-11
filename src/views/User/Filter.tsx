@@ -79,7 +79,7 @@ const FilterForm: React.FC<FilterProps> = ({
           value: filters?.status,
         },
       ]}
-      style={{ width: "16.8rem", padding: "1rem" }}
+      style={{ width: "18.5rem", padding: "1rem",  }}
     >
       <Form.Item
         name="organization"
