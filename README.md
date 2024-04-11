@@ -29,7 +29,6 @@ This is not supposed to be a template, boilerplate or a framework. It is an opin
 - [👁️ Style Guide](docs/style-guide.md)
 - [🗄️ Project Structure](docs/project-structure.md)
 - [🧱 Components And Styling](docs/components-and-styling.md)
-- [📡 API Layer](docs/api-layer.md)
 - [🗃️ State Management](docs/state-management.md)
 - [🧪 Testing](docs/testing.md)
 - [⚠️ Error Handling](docs/error-handling.md)
