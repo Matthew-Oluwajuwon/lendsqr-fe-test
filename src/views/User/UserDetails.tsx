@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { routePath } from "../../utils/helper";
 import { Apiresponse } from "../../model/client/response";
 import GeneralDetails from "./GeneralDetails";
-import "./User.scss"
+import "./User.scss";
 import React from "react";
 
 const Details: React.FC = () => {
@@ -23,31 +23,31 @@ const Details: React.FC = () => {
 
   const items: TabsProps["items"] = [
     {
-        label: "General Details",
-        key: '1',
-        children: <GeneralDetails data={data} />
+      label: "General Details",
+      key: "1",
+      children: <GeneralDetails data={data} />,
     },
     {
-        label: "Documents",
-        key: '2'
+      label: "Documents",
+      key: "2",
     },
     {
-        label: "Bank Details",
-        key: '3'
+      label: "Bank Details",
+      key: "3",
     },
     {
-        label: "Loans",
-        key: '4'
+      label: "Loans",
+      key: "4",
     },
     {
-        label: "Savings",
-        key: '5'
+      label: "Savings",
+      key: "5",
     },
     {
-        label: "App and System",
-        key: '6'
+      label: "App and System",
+      key: "6",
     },
-]
+  ];
 
   return (
     <div className="users">
@@ -55,10 +55,12 @@ const Details: React.FC = () => {
         spinning={state.record === undefined}
         fullscreen={state.record === undefined}
       >
-        <button className="back" onClick={() => navigate(routePath.User)}>
-          <img src={arrowBack} alt="" />
-          <p>Back to users</p>
-        </button>
+        <div style={{display: "flex", alignItems: "center", gap: 15, color: "#545F7D"}}>
+          <button className="back" onClick={() => navigate(routePath.User)}>
+            <img src={arrowBack} alt="" />
+          </button>
+            <p>Back to users</p>
+        </div>
         <div className="users__header">
           <h1 className="users__heading">User Details</h1>
           <div className="users__header__action">
@@ -83,14 +85,20 @@ const Details: React.FC = () => {
                 </p>
               </div>
             </div>
-            <Divider orientation="center" type="vertical" className="users__user__divider" />
-            <div
-              className="users__user_user-bio users__user__more"
-            >
+            <Divider
+              orientation="center"
+              type="vertical"
+              className="users__user__divider"
+            />
+            <div className="users__user_user-bio users__user__more">
               <h3 className="users__user__tier">User's Tier</h3>
               <Rate count={3} value={Math.floor(Math.random() * 3)} disabled />
             </div>
-            <Divider orientation="center" type="vertical"  className="users__user__divider"/>
+            <Divider
+              orientation="center"
+              type="vertical"
+              className="users__user__divider"
+            />
             <div className="users__user_user-bio users__user__more">
               <h1 className="users__user__name">
                 ₦{Intl.NumberFormat().format(data?.bankInformation?.amount)}
@@ -110,5 +118,5 @@ const Details: React.FC = () => {
   );
 };
 
-const UserDetails = React.memo(Details)
-export default UserDetails
+const UserDetails = React.memo(Details);
+export default UserDetails;
