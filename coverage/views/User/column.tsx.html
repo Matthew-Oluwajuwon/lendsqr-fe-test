@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.32% </span>
+                <span class="strong">95.41% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>204/214</span>
+                <span class='fraction'>208/218</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.32% </span>
+                <span class="strong">95.41% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>204/214</span>
+                <span class='fraction'>208/218</span>
             </div>
         
             
@@ -277,7 +277,15 @@
 <a name='L212'></a><a href='#L212'>212</a>
 <a name='L213'></a><a href='#L213'>213</a>
 <a name='L214'></a><a href='#L214'>214</a>
-<a name='L215'></a><a href='#L215'>215</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L215'></a><a href='#L215'>215</a>
+<a name='L216'></a><a href='#L216'>216</a>
+<a name='L217'></a><a href='#L217'>217</a>
+<a name='L218'></a><a href='#L218'>218</a>
+<a name='L219'></a><a href='#L219'>219</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -294,22 +302,6 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -370,8 +362,24 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -492,7 +500,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Dropdown } from "antd";
+import { Dropdown, MenuProps } from "antd";
 import { ColumnProps } from "antd/es/table";
 import { Apiresponse } from "../../model/client/response";
 import { routePath, userStatus } from "../../utils/helper";
@@ -501,7 +509,15 @@ import more from "../../assets/icons/more.png";
 import filterIcon from "../../assets/icons/filter-btn.png";
 import { useNavigate } from "react-router-dom";
 &nbsp;
-const useColumn = (setFilters: any, filters: any, items: any[]) =&gt; {
+interface ColumnConfiguration {
+  column: ColumnProps&lt;Apiresponse.Users&gt;[];
+}
+&nbsp;
+const useColumn = (
+  setFilters: any,
+  filters: any,
+  items: MenuProps["items"]
+): ColumnConfiguration =&gt; {
   const navigate = useNavigate();
 &nbsp;
   const column: ColumnProps&lt;Apiresponse.Users&gt;[] = [
@@ -582,11 +598,7 @@ const useColumn = (setFilters: any, filters: any, items: any[]) =&gt; {
       },
       filterIcon: () =&gt; &lt;img src={filterIcon} alt="" /&gt;,
       render: (_, record: Apiresponse.Users) =&gt; {
-        return (
-          &lt;p&gt;
-            {record.personalInformation?.phoneNumber}
-          &lt;/p&gt;
-        );
+        return &lt;p&gt;{record.personalInformation?.phoneNumber}&lt;/p&gt;;
       },
     },
     {
@@ -712,7 +724,7 @@ export default useColumn;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-04-11T14:18:36.617Z
+                at 2024-04-11T15:14:14.710Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

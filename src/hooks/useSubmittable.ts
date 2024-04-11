@@ -8,11 +8,15 @@
 import { Form, FormInstance } from "antd";
 import { useEffect, useState } from "react";
 
-interface SubmitButtonProps {
+interface SubmitButton {
   form: FormInstance;
 }
 
-const useSubmittable = ({ form }: SubmitButtonProps) => {
+interface SubmittableResult {
+  submittable: boolean;
+}
+
+const useSubmittable = ({ form }: SubmitButton): SubmittableResult => {
   const [submittable, setSubmittable] = useState<boolean>(false);
 
   // Watch all values

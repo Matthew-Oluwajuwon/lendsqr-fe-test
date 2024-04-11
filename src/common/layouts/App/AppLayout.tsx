@@ -2,8 +2,9 @@ import "./AppLayout.scss";
 import { Outlet } from "react-router-dom";
 import SideBar from "./SideBar";
 import Header from "./Header";
+import React from "react";
 
-export const AppLayout = () => {
+const Layout = () => {
   return (
     <div className="layout">
       <Header />
@@ -16,3 +17,5 @@ export const AppLayout = () => {
     </div>
   );
 };
+
+export const AppLayout = React.memo(Layout)

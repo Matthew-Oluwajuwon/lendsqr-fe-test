@@ -1,8 +1,9 @@
+import React from "react"
 import "./User.scss"
 import UserList from "./UserList"
 import UserStatistics from "./UserStatistics"
 
-const User: React.FC = () => {
+const UserView: React.FC = () => {
     document.title = "Users | Lendsqr"
   return (
     <div className="users">
@@ -13,4 +14,5 @@ const User: React.FC = () => {
   )
 }
 
+const User = React.memo(UserView)
 export default User

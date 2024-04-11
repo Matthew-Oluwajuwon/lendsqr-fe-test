@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Dropdown } from "antd";
+import { Dropdown, MenuProps } from "antd";
 import { ColumnProps } from "antd/es/table";
 import { Apiresponse } from "../../model/client/response";
 import { routePath, userStatus } from "../../utils/helper";
@@ -8,7 +8,15 @@ import more from "../../assets/icons/more.png";
 import filterIcon from "../../assets/icons/filter-btn.png";
 import { useNavigate } from "react-router-dom";
 
-const useColumn = (setFilters: any, filters: any, items: any[]) => {
+interface ColumnConfiguration {
+  column: ColumnProps<Apiresponse.Users>[];
+}
+
+const useColumn = (
+  setFilters: any,
+  filters: any,
+  items: MenuProps["items"]
+): ColumnConfiguration => {
   const navigate = useNavigate();
 
   const column: ColumnProps<Apiresponse.Users>[] = [
@@ -89,11 +97,7 @@ const useColumn = (setFilters: any, filters: any, items: any[]) => {
       },
       filterIcon: () => <img src={filterIcon} alt="" />,
       render: (_, record: Apiresponse.Users) => {
-        return (
-          <p>
-            {record.personalInformation?.phoneNumber}
-          </p>
-        );
+        return <p>{record.personalInformation?.phoneNumber}</p>;
       },
     },
     {

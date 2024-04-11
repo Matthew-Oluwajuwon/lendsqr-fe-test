@@ -2,13 +2,13 @@
 import { DataTable } from "../../common/components/DataTable";
 import { useAppSelector } from "../../store/hooks";
 import useRetriveDataFromStorage from "../../hooks/useRetriveDataFromStorage";
-import { useState } from "react";
+import React, { useState } from "react";
 import moment from "moment";
 import useColumn from "./column";
 import TableMoreItems from "./TableMoreItems";
 import "./User.scss";
 
-const UserList: React.FC = () => {
+const ListData: React.FC = () => {
   const state = useAppSelector((state) => {
     return state.app;
   });
@@ -68,4 +68,5 @@ const UserList: React.FC = () => {
   );
 };
 
+const UserList = React.memo(ListData)
 export default UserList;

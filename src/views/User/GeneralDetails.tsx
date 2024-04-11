@@ -2,9 +2,10 @@
 import { Col, Divider, Row } from "antd";
 import { Apiresponse } from "../../model/client/response";
 import "./User.scss"
+import React from "react";
 
 
-const GeneralDetails: React.FC<any> = ({
+const Details: React.FC<any> = ({
   data,
 }: {
   data: Apiresponse.Users;
@@ -90,4 +91,5 @@ const GeneralDetails: React.FC<any> = ({
   );
 };
 
+const GeneralDetails = React.memo(Details)
 export default GeneralDetails;

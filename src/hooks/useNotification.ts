@@ -2,7 +2,11 @@ import { App } from "antd";
 
 type NotificationType = "info" | "success" | "error";
 
-const useNotification = () => {
+interface NotificationResult {
+  onNotify: (type: NotificationType, description: string, message?: string) => void;
+}
+
+const useNotification = (): NotificationResult => {
   const { notification } = App.useApp();
 
   const onNotify = (

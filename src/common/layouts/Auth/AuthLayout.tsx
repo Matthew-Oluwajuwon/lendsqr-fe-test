@@ -3,8 +3,9 @@ import logo from "../../../assets/images/logo.svg";
 import favicon from "../../../../favicon.png"
 import authImage from "../../../assets/images/login-img.svg";
 import "./AuthLayout.scss";
+import React from "react";
 
-export const AuthLayout: React.FC = () => {
+const Layout: React.FC = () => {
   return (
     <div className="auth-container">
       <section className="auth-container__left">
@@ -18,3 +19,5 @@ export const AuthLayout: React.FC = () => {
     </div>
   );
 };
+
+export const AuthLayout = React.memo(Layout)

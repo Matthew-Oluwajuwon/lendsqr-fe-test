@@ -4,7 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { routePath, storeDataToLocalStorage } from "../utils/helper";
 import useNotification from "./useNotification";
 
-const useLogin = () => {
+interface LoginResult {
+  onLogin: () => void;
+}
+
+const useLogin = (): LoginResult => {
   const state = useAppSelector((state) => {
     return state.app;
   });
@@ -21,7 +25,7 @@ const useLogin = () => {
         return navigate(routePath.User, {
           replace: true,
         });
-      }, 1000);
+      }, 500);
     
   }, [navigate, onNotify, state.request?.password]);
 

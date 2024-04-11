@@ -10,7 +10,7 @@ import { useAppDispatch } from "../store/hooks";
 import { setAppKey } from "../store";
 import useNotification from "./useNotification";
 
-const useRetriveDataFromStorage = () => {
+const useRetriveDataFromStorage = (): void => {
   const dispatch = useAppDispatch();
 
   const { onNotify } = useNotification();

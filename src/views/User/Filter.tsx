@@ -4,6 +4,7 @@ import { Apiresponse } from "../../model/client/response";
 import { formConfig, userStatus } from "../../utils/helper";
 import dateImg from "../../assets/icons/calendar.png";
 import "./User.scss";
+import React from "react";
 
 interface FilterProps {
   setFilters: (value: any) => void;
@@ -12,7 +13,7 @@ interface FilterProps {
   confirm: () => void;
 }
 
-const Filter: React.FC<FilterProps> = ({
+const FilterForm: React.FC<FilterProps> = ({
   setFilters,
   filters,
   clearFilters,
@@ -242,5 +243,7 @@ const Filter: React.FC<FilterProps> = ({
     </Form>
   );
 };
+
+const Filter = React.memo(FilterForm)
 
 export default Filter;

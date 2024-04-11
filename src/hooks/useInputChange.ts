@@ -7,7 +7,11 @@ import { useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { setAllAppKeys } from "../store";
 
-const useInputChange = () => {
+interface InputChangeFunction {
+  (key: string, value: unknown): void;
+}
+
+const useInputChange = (): InputChangeFunction => {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => {
     return state.app;

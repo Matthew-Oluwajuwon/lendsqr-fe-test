@@ -5,8 +5,9 @@ import useInputChange from "../../hooks/useInputChange";
 import { useAppSelector } from "../../store/hooks";
 import useSubmittable from "../../hooks/useSubmittable";
 import useLogin from "../../hooks/useLogin";
+import React from "react";
 
- const Login: React.FC = () => {
+ const LoginView: React.FC = () => {
   document.title = "Lendsqr | Empowering the smartest lenders";
   const state = useAppSelector((state) => {
     return state.app;
@@ -117,4 +118,5 @@ import useLogin from "../../hooks/useLogin";
   );
 };
 
+const Login = React.memo(LoginView)
 export default Login

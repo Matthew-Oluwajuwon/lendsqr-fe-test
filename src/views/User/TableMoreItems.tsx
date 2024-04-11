@@ -4,8 +4,11 @@ import viewUser from "../../assets/icons/eye-outline.png";
 import { MenuProps } from "antd";
 import "./User.scss"
 
+interface TableMoreItemsConfiguration {
+  items: MenuProps["items"];
+}
 
-const TableMoreItems = () => {
+const TableMoreItems = (): TableMoreItemsConfiguration => {
 
   const items: MenuProps["items"] = [
     {

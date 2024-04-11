@@ -11,7 +11,7 @@ import { setAllAppKeys } from "../store";
 import { useCallback, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const useFetchSignleUser = () => {
+const useFetchSignleUser = (): void => {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => {
     return state.app;

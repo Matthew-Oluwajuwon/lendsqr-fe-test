@@ -3,9 +3,10 @@ import usersWithLoan from "../../assets/icons/users-with-loan.png";
 import usersWithSavings from "../../assets/icons/users-with-savings.png";
 import activeUsers from "../../assets/icons/active-users.png";
 import "./User.scss"
+import React from "react";
 
 
-const UserStatistics: React.FC = () => {
+const Stats: React.FC = () => {
   const statistics = [
     {
       img: users,
@@ -44,4 +45,5 @@ const UserStatistics: React.FC = () => {
   );
 };
 
+const UserStatistics = React.memo(Stats)
 export default UserStatistics;

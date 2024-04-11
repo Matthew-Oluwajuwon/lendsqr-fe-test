@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../../../favicon.png"
 import "./LazyLoader.scss"
 
-const LazyLoader: React.FC = () => {
+const Loader: React.FC = () => {
   return (
     <div className="grid">
       <img src={Logo} alt="" className="loader" />
@@ -11,4 +11,4 @@ const LazyLoader: React.FC = () => {
   );
 };
 
-export default LazyLoader;
+export const LazyLoader = React.memo(Loader)

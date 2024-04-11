@@ -9,7 +9,7 @@ import nextArrow from "../../assets/icons/next-btn.png";
 import prevArrow from "../../assets/icons/prev-btn.png";
 import dropdown from "../../assets/icons/dropdown-outline.png";
 
-export const DataTable: React.FC<AppProps.TableData> = ({
+const PageTable: React.FC<AppProps.TableData> = ({
   column,
   dataSource,
   loading,
@@ -80,3 +80,5 @@ export const DataTable: React.FC<AppProps.TableData> = ({
     />
   );
 };
+
+export const DataTable = React.memo(PageTable)

@@ -8,8 +8,9 @@ import { routePath } from "../../utils/helper";
 import { Apiresponse } from "../../model/client/response";
 import GeneralDetails from "./GeneralDetails";
 import "./User.scss"
+import React from "react";
 
-const UserDetails: React.FC = () => {
+const Details: React.FC = () => {
   const state = useAppSelector((state) => {
     return state.app;
   });
@@ -109,4 +110,5 @@ const UserDetails: React.FC = () => {
   );
 };
 
+const UserDetails = React.memo(Details)
 export default UserDetails
