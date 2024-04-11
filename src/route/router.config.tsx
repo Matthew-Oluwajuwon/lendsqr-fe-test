@@ -3,6 +3,7 @@ import { routePath } from "../utils/helper";
 import { Login, User, UserDetails } from "../views";
 import { AppLayout } from "../common/layouts/App/AppLayout";
 import { AuthLayout } from "../common/layouts/Auth/AuthLayout";
+import { ProtectedRoute } from "./router-protection";
 
 export const router = createBrowserRouter([
   {
@@ -15,7 +16,11 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    element: <AppLayout />,
+    element: (
+      <ProtectedRoute>
+        <AppLayout />
+      </ProtectedRoute>
+    ),
     path: routePath.User,
     children: [
       {
@@ -24,8 +29,8 @@ export const router = createBrowserRouter([
       },
       {
         path: routePath.UserDetails + ":id",
-        Component: UserDetails
-      }
+        Component: UserDetails,
+      },
     ],
   },
 ]);
