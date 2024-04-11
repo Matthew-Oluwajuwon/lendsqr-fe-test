@@ -26,6 +26,7 @@ const useLogin = () => {
     } else {
       onNotify("success", "Login is successful", "Authenticated");
       storeDataToLocalStorage()
+      localStorage.setItem("***", btoa(state.request?.password))
       setTimeout(() => {
         return navigate(routePath.User, {
           replace: true,

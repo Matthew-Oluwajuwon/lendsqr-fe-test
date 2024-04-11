@@ -35,8 +35,6 @@ const Filter: React.FC<FilterProps> = ({
 
   const handleConfirm = () => {
     confirm();
-    // Apply filters to the table
-    // Example: applyFiltersToTable(filters);
   };
   return (
     <Form
@@ -44,31 +42,31 @@ const Filter: React.FC<FilterProps> = ({
       fields={[
         {
           name: "organization",
-          value: filters.organization,
+          value: filters?.organization,
         },
         {
           name: "username",
-          value: filters.username,
+          value: filters?.username,
         },
         {
           name: "email",
-          value: filters.email,
+          value: filters?.email,
         },
         {
           name: "phoneNumber",
-          value: filters.phoneNumber,
+          value: filters?.phoneNumber,
         },
         {
           name: "dateJoined",
-          value: filters.dateJoined,
+          value: filters?.dateJoined,
         },
         {
           name: "phoneNumber",
-          value: filters.phoneNumber,
+          value: filters?.phoneNumber,
         },
         {
           name: "status",
-          value: filters.status,
+          value: filters?.status,
         },
       ]}
       style={{ width: "16.8rem", padding: "1rem" }}
